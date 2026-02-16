@@ -1,0 +1,300 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Montserrat', sans-serif;
+
+    --text-color: #38393f;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.main-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: var(--text-color);
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.nav-list {
+    display: flex;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.nav-list a {
+    color: var(--text-color);
+}
+
+.nav-list a:hover {
+    color:#38b000;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.info-list img {
+    padding-right: 5px ;
+}
+
+.btn-presupuesto a {
+    color: #38b000;
+    padding: 8px 14px;
+    border-radius: 5px;
+    border: 1px solid #38b000;
+    font-weight: 600;
+}
+
+.btn-presupuesto a:hover {
+    background:#38b000;
+    color: #fff;
+}
+
+/*----- Home galeria ------ */
+
+.carousel {
+    max-width: 90%;
+    min-height: 400px;
+    margin: 30px auto;
+    padding: 0 5px;
+    padding-left: 0;
+    color: var(--text-color);
+    backdrop-filter: blur(1px);
+    background-color: #dee2e6;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.slide {
+    display: none;
+    align-items: stretch;
+    gap: 40px;
+    min-height: 400px;
+}
+
+.slide.active {
+    display: flex;
+}
+
+/* Imagen */
+.img-carousel {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.img-carousel img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+
+/* --------Texto-------- */
+.text {
+    width: 55%;
+}
+
+.text h2 {
+    font-size: 30px;
+    margin-bottom: 5px;
+    color: #38b000;
+}
+
+.text p {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.text img {
+    width: 20px;
+    padding-right: 5px;
+}
+
+/* Flechas */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--btn-color);
+    color: rgba(77, 77, 77, 0.856);
+    border: none;
+    font-size: 22px;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+.prev:hover, .next:hover {
+    color: #38b000;;
+}
+@media (max-width: 768px) {
+    .carousel {
+    display: none;
+    }
+}
+
+/*----- Home Novedades ------ */
+.portfolio {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    container-name: portfolio;
+    container-type: inline-size;
+    justify-content: space-evenly;
+}
+
+.portfolio_title {
+    font-size: 3rem;
+    margin-bottom: 0;
+    color: var(--text-color);
+}
+
+.portfolio__project-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1300px;
+    margin: auto;
+    width: 100%;
+    gap:12px;
+    padding: 12px;
+    min-height: 80vh;
+}
+
+.portfolio__project {
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    color:#e3e4e7;
+    place-content: center;
+    border-radius: 8px;
+}
+
+.portfolio__project:hover {
+    opacity: 0.8;
+    outline:2px solid #38b000;
+    color: #38b000; 
+}
+
+.principal {
+    background-image: linear-gradient(#0009, #0009), url(../imagenes/home/nueva-planta.jpeg);
+}
+
+.segundo {
+    background-image:linear-gradient(#0009, #0009), url(../imagenes/entregas/brickman.png);
+}
+
+.tercero {
+    background-image: linear-gradient(#0009, #0009), url(../imagenes/entregas/SAN-FRANCISCO-A1.jpeg);
+}
+
+.cuarto {
+    background-image: linear-gradient(#0009, #0009), url(../imagenes/entregas/GENERAL-VIAMONTE-1200x800.jpg);
+}
+
+.quinto {
+    background-image:linear-gradient(#0009, #0009), url(../imagenes/entregas/BERAZATEGUI2.jpg);
+}
+
+/*----- Home Novedades querys ------ */
+@container portfolio (min-width: 900px) {
+    .portfolio__project-container {
+        grid-template-columns: repeat(auto-fill,minmax(420px,1fr));
+    }
+
+.portfolio__project:first-child{
+    grid-column: span 2;
+}
+
+.portfolio__project:nth-child(6){
+    grid-column: span 2;
+}
+}
+
+@container portfolio (min-width: 1300px) {
+    .portfolio__project-container {
+        grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    }
+
+.portfolio__project:first-child{
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.portfolio__project:nth-child(6){
+    grid-column: span 4;
+}
+}
+
+/*----- footer ------*/
+
+.footer {
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.footer-contacto, .footer-iframe, .footer-diseñador {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+    color: var(--text-color);
+}
+.footer-contacto a {
+    display: flex;
+    align-items: center;   
+    justify-content: center; 
+    gap: 10px;            
+    margin: 8px 0;
+    color: inherit;
+}
+
+.footer-contacto img {
+    width: 28px;
+    padding: 0;
+}
+
+.footer-iframe iframe {
+    border-radius: 10px;
+}
+
+.footer-diseñador {
+    color: #c2c3c7;
+}
