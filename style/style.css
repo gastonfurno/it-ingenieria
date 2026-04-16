@@ -21,31 +21,69 @@ a {
 
 .main-header {
     display: flex;
+    align-items: center;
     width: 100%;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
+    background: #fff;
     color: var(--text-color);
-    background-color: #fff;
+    min-height: 110px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
+.main-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #38b000;
+    clip-path: polygon(0 0, 33% 0, 25% 100%, 0% 100%);
+    z-index: 0;
+}
+
+.logo,
+.nav-bar,
+.info-header {
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    width: 30%;
+    display: flex;
+    align-items: center;    
+    padding-left: 20px;        
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100%;
+}
 
 .nav-list {
     display: flex;
-    gap: 10px;
     font-weight: 600;
+    gap: 10px;
+    
 }
 
 .nav-list a {
     color: var(--text-color);
+    transition: color 0.5s;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    padding: 10px;
 }
 
 .nav-list a:hover {
-    color:#38b000;
+    color:#38b000;  
 }
 
 .info-list {
@@ -65,6 +103,7 @@ a {
     border-radius: 5px;
     border: 1px solid #38b000;
     font-weight: 600;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .btn-presupuesto a:hover {
@@ -229,6 +268,7 @@ a {
 }
 
 /*----- Home Novedades querys ------ */
+
 @container portfolio (min-width: 900px) {
     .portfolio__project-container {
         grid-template-columns: repeat(auto-fill,minmax(420px,1fr));
@@ -270,25 +310,24 @@ a {
     box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
-.footer-contacto, .footer-iframe, .footer-diseñador {
+
+.footer-container-contacto {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 30%;
-    color: var(--text-color);
+    width: 60%;
 }
+
+.footer-logo img {
+    width: 300px;
+}
+
 .footer-contacto a {
-    display: flex;
-    align-items: center;   
-    justify-content: center; 
-    gap: 10px;            
-    margin: 8px 0;
-    color: inherit;
+    padding: 5px;
 }
 
 .footer-contacto img {
-    width: 28px;
-    padding: 0;
+    width: 30px;
 }
 
 .footer-iframe iframe {
@@ -297,4 +336,127 @@ a {
 
 .footer-diseñador {
     color: #c2c3c7;
+}
+
+/*----- footer ------*/
+
+/*----- producto ------*/
+
+.container-producto {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding-bottom: 15px;
+}
+
+.producto {
+    margin: 10px auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 7px 8px 10px 3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.producto img {
+    width: 100%;
+}
+
+.producto h2 {
+    color: #38b000; 
+    letter-spacing: 1.5px;
+    font-size: 1.9rem;
+    font-weight: 400;
+}
+
+.producto h2:hover {
+    color: #298b11;
+}
+
+.producto button {
+    align-items: start;
+}
+
+.boton-productos {
+    width: 20%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #38b000;
+    color: #fff;
+    border: 1px solid #38b000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.boton-productos:hover {
+    color: #38b000;
+    background-color: #fff;
+    box-shadow: 7px 8px 5px 0px rgba(0,0,0,0.1);
+}
+
+
+/* --------servicio-------- */
+.servicio {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.servicio h1{
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.contenedor-servicios {
+    display: flex;
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    box-shadow: 7px 8px 10px 3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.contenedor-servicios img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.bi-check2 {
+    color: #298b11 !important;
+    padding-right: 5px !important;
+}
+
+.servicio-txt {
+    max-width: 450px;
+    margin-left: 25px;
+}
+
+
+.servicio-txt h2,
+.servicio-txt h3 {
+    text-align: center;
+    color: var(--text-color);
+}
+
+.servicio-txt p,
+.servicio-txt ul {
+    text-align: left;
+}
+
+.servicio-txt ul {
+    padding-left: 0;
+}
+
+.servicio-txt li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
 }
